@@ -9,7 +9,7 @@ This repo is the homework1 of GAMES202, which implements **hard shadow map**, **
 One way to alleviate these effect is to use a filter to smooth the jagged edges, which is the PCF method.
 ![hardShadow](img/poissonOverview.png)
 
-However, hard shadow and PCF shadow both produces shadow almost **solid dark everywhere**. But in real life, we see shadow with **gradient brightness on the edge**, this is mainly because light in real life is **emitted from a surface**, not an ideal point, this produces ponumbra, e.g., partial lunar eclipse v.s. total lunar eclipse.
+However, hard shadow and PCF shadow both produces shadow almost **solid dark everywhere**. But in real life, we see shadow with **gradient brightness on the edge**, this is mainly because light in real life is **emitted from a surface**, not an ideal point, this produces penumbra, e.g., partial lunar eclipse v.s. total lunar eclipse.
 
 PCSS simulates the penumbra effect with a variable filter radius, which gives a rather good result.
 ![hardShadow](img/PCSSOverview.png)
