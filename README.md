@@ -11,7 +11,7 @@ One way to alleviate these effect is to use a filter to smooth the jagged edges,
 
 However, hard shadow and PCF shadow both produces shadow almost **solid dark everywhere**. But in real life, we see shadow with **gradient brightness on the edge**, this is mainly because light in real life is **emitted from a surface**, not an ideal point, this produces ponumbra, e.g., partial lunar eclipse v.s. total lunar eclipse.
 
-PCSS simulates the ponumbra effect with a variable filter radius, which gives a rather good result.
+PCSS simulates the penumbra effect with a variable filter radius, which gives a rather good result.
 ![hardShadow](img/PCSSOverview.png)
 
 ## Sampling in PCF matters
