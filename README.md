@@ -51,11 +51,11 @@ $$w_{penumbra} = \frac{d_{receiver} - d_{blocker}} {d_{blocker}} w_{light}$$
 This gives the penumbra radius on the receiver plane **in world coordinate**, but we need to sample **in shadow map coordinate** in range $[0,1]$.So we need to convert the radius to the texture coordinate.
 
 Assume we are using perspective projection from the light view. Then the radius in the frustum is:
-$$w_{p\_ frustum} = \frac{d_{near}}{d_{receiver}}w_{penumbra}$$
+$$w_{p,frustum} = \frac{d_{near}}{d_{receiver}}w_{penumbra}$$
 Then the frustum is transformed to the $[0,1]^{2}$ texture map coordinate with a scale of one over frustum width:
-$$w_{p\_texture}= \frac{1}{w_{frustem}}w_{p\_frustum}$$
+$$w_{p,texture}= \frac{1}{w_{frustem}}w_{p,frustum}$$
 So we finally get the penumbra radius in texture coordinate:
-$$w_{p\_texture} = \frac{d_{near}(d_{receiver} - d_{blocker})w_{light}} {d_{blocker}d_{receiver}w_{frustum}}$$
+$$w_{p,texture} = \frac{d_{near}(d_{receiver} - d_{blocker})w_{light}} {d_{blocker}d_{receiver}w_{frustum}}$$
 
 ### Blocker search radius
 Why do we need averaged blocker distance?<br>
