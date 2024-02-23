@@ -93,11 +93,9 @@ float useShadowMap(sampler2D shadowMap, vec4 shadowCoord) {
   // coord: [-1, 1] -> [0, 1]
   float nearest = unpack(texture2D(shadowMap, vec2(shadowCoord.x * 0.5 + 0.5, shadowCoord.y * 0.5 + 0.5)).rgba);
   float current = shadowCoord.z * 0.5 + 0.5;
-  return current - nearest > 0.001 ? 0.0 : 0.75;
+  return current - nearest > 0.001 ? 0.0 : 1.0;
 }
 
-// 越向外旋越稀疏，重影很明显
-// sample多效果才会比uniform好， 边缘的形状保持更好
 float poissonPCF(sampler2D shadowMap, vec4 coords) {
   // uniformDiskSamples(coords.xy);
   poissonDiskSamples(vec2(3541.3, 1209.6));
@@ -116,8 +114,7 @@ float poissonPCF(sampler2D shadowMap, vec4 coords) {
   return visibility / float(NUM_SAMPLES);
 }
 
-// 糊的最匀
-// 远处地面摩尔纹的原因？ 增加bias并不能避免
+
 // 固定seed，scale 4.0/2048, bias 0.003 看起来还可以
 float uniformPCF(sampler2D shadowMap, vec4 coords) {
   // uniformDiskSamples(coords.xy * 100.0); // 噪点会很多？
