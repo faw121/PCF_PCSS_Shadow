@@ -53,7 +53,7 @@ This gives the penumbra radius on the receiver plane **in world coordinate**, bu
 Assume we are using perspective projection from the light view. Then the radius in the frustum is:
 $$w_{p,frustum} = \frac{d_{near}}{d_{receiver}}w_{penumbra}$$
 Then the frustum is transformed to the $[0,1]^{2}$ texture map coordinate with a scale of one over frustum width:
-$$w_{p,texture}= \frac{1}{w_{frustem}}w_{p,frustum}$$
+$$w_{p,texture}= \frac{1}{w_{frustum}}w_{p,frustum}$$
 So we finally get the penumbra radius in texture coordinate:
 $$w_{p,texture} = \frac{d_{near}(d_{receiver} - d_{blocker})w_{light}} {d_{blocker}d_{receiver}w_{frustum}}$$
 
